@@ -1,0 +1,108 @@
+What are Amazon Web Services (AWS)?
+
+Amazon Web Services (AWS)
+With Amazon Web Services (AWS), businesses can flexibly provide storage space and computing capacity in Amazon's data centers without the need to maintain their own hardware. A significant advantage is that the infrastructure covers all scales for cloud computing. Whether it's applications for sharing video material, high-resolution photos, print data, or text documents: AWS can provide IT resources on-demand over the Internet at usage-based costs. The service has existed since 2006 as a fully-owned subsidiary of Amazon Inc. The idea emerged from extensive experience with Amazon.com and the company's own need for cloud-based web services platforms.
+
+What is Cloud Computing?
+Cloud computing is a service that provides access to technology resources managed by experts. The cloud platform offers infrastructure (e.g., computing power, storage space), which, unlike self-procured hardware, does not need to be installed and configured. With cloud computing, only the resources used are paid for. For instance, a web shop can increase computing power during the Christmas season and book less power during "weak" months.
+
+The backup and storage are aimed at 99.999999999% durability.
+
+Access is over the Internet or VPN. There are no ongoing investment costs after initial setup; resources like virtual servers, databases, or storage services are billed only based on consumption.
+
+Where are my data stored with Amazon AWS?
+Currently, there are eight Amazon data centers (AWS Regions) in different parts of the world.
+
+For each Amazon AWS resource, only the customer decides where it is used or stored.
+
+German customers typically use the data center in Ireland, which is subject to European law.
+
+How secure are my data with Amazon AWS?
+Customer data is stored in a highly secured infrastructure. Security measures include:
+
+- Protection against DDoS attacks (Distributed Denial of Service)
+- Defense against brute-force attacks on AWS accounts
+- Secure access: Access is established over SSL.
+- Firewall: Ingress and egress to AWS data can be controlled.
+- Encrypted data storage: Data can be encrypted with Advanced Encryption Standard (AES) 256.
+- Certifications: Regular security reviews through independent certifications that AWS undergoes.
+
+Each Amazon data center (AWS Region) consists of at least one Availability Zone. Availability Zones are independent sub-locations developed to be isolated from failures in other Availability Zones (independent power and data supply). Certain AWS resources like database services (RDS) or storage services (S3) automatically replicate your data within the AWS Region across different Availability Zones.
+
+Amazon AWS has corresponding certifications like ISO27001 and has implemented a comprehensive security concept for the operation of its data centers.
+
+More information about the security of AWS can be found here: http://aws.amazon.com/de/security/
+
+Do I need to worry about hardware with Amazon AWS?
+No, all resources at Amazon AWS are virtualized. Amazon takes care of hardware replacement and upgrades.
+
+Normally, you won't notice defective hardware, as Amazon replaces defective storage media, and since your data is redundantly stored multiple times, no issue usually arises.
+
+If your chosen resources do not provide enough performance, you can easily grant more CPU power to the resources with just a few clicks. You don't need to install anything new; you only need to restart your virtual machine or virtual database instance.
+
+What services does Amazon AWS offer?
+The Amazon Web Services platform currently offers around 20 different services – from pure infrastructure services like virtual networks to application services like databases. Here are the most important ones:
+
+- EC2 = Virtual Windows or Linux Servers
+- Virtual Firewalls & Load Balancers
+- S3 = A cost-effective redundant storage service
+- VPC = Virtual Private Clouds
+- RDS = MySQL, Oracle, and SQLServer databases
+- DynamoDB = NoSQL database
+- CloudFront = Content Delivery Network
+- SQS = Queue Management System
+
+We are happy to assist you in selecting and assembling the right services.
+
+How can I scale?
+Amazon AWS offers you external and internal load balancers.
+
+External load balancers connect to the Internet and distribute the load across web servers. Internal load balancers can also be used to distribute the load across different backend servers. As part of AutoScaling, you can define a configuration that automatically starts or stops additional resources (virtual computers) based on defined metrics. You only pay for the resources you use.
+
+Can I also implement complex scenarios?
+With Amazon AWS, you can implement very simple (e.g., just 1 web server) as well as complex scenarios.
+
+From a certain complexity, it is advisable to use Amazon AWS VPC. This allows you to distribute your resources across multiple subnets and integrate VPNs.
+
+You can place firewalls and load balancers between these subnets.
+
+How is Amazon AWS managed and operated?
+- Via Windows Remote Desktop connection
+- Linux SSH
+- Browser-based administration
+- API access or command line
+
+Does Amazon AWS have a user management system with rights administration?
+Within the scope of the (free) module Amazon AWS IAM, users, groups, and roles can be defined. Users can have their own access keys, certificates, and even a multi-factor authentication device (apps for mobile devices exist). Users, groups, and roles can then be granted dedicated access rights to the corresponding Amazon AWS resources.
+
+What does it cost to use Amazon AWS?
+That depends ... we have to say!
+
+All prices for Amazon AWS are, of course, transparent and listed for individual resources in USD. For example, http://aws.amazon.com/de/ec2/pricing/
+
+Since billing is based on usage, it depends on your use of the corresponding resources. Additionally, prices can be significantly reduced by purchasing discount plans (OnDemand vs. Reserved Instances). Besides the resources, outgoing traffic is also billed. Incoming traffic is NOT billed.
+
+Amazon provides an online calculator: http://calculator.s3.amazonaws.com/calc5.html?lng=de_DE
+
+However, we are happy to help you find the right prices!
+
+Can I see and monitor the costs incurred?
+Through the AWS Console, you always have a detailed overview of the currently accumulated costs. You can define an alert when certain cost thresholds are exceeded. The accumulated costs can also be stored as a CSV file in an S3 bucket, so they can be automatically retrieved and processed.
+
+How can I start with Amazon AWS?
+Amazon AWS is initially a pure self-service: you go to http://aws.amazon.com/de/ and create an account, billing is through a credit card. You then pay for the resources you use accordingly. We are happy to advise you on using Amazon AWS.
+
+tecRacer Amazon AWS Managed Hosting: If you want to take advantage of Amazon AWS but find it all too complicated, we will gladly take care of everything for you.
+
+Who is tecRacer?
+tecRacer, based in Hanover, Germany, was founded in 2006 as part of Herrlich & Ramuschkat GmbH and employs over 50 people.
+
+tecRacer has long-standing experience in web-based software development projects based on agile methods for companies like Volkswagen, Deutsche Telekom, B.Braun, Grundfos, and Faurecia.
+
+You can find an excerpt of our AWS references here in the blog; we are also an Amazon AWS Premier Consulting Partner, audited AWS Managed Services, and authorized AWS Training Partner.
+
+What does tecRacer offer for Amazon AWS?
+tecRacer Amazon AWS Consulting analyzes with you the advantages Amazon Web Services can offer, how a migration of your applications can be carried out, and the financial and compliance implications of using Amazon Web Services for your company.
+tecRacer Amazon AWS Training helps you get started quickly and efficiently use Amazon Web Services technologies in your company.
+tecRacer Amazon AWS Development implements complex software projects for you using agile methods based on the Amazon Web Services platform.
+tecRacer Amazon AWS Managed Hosting operates your applications in the Amazon cloud. We don't just provide "support"; we take over the complete service management for you, thus reducing your costs.

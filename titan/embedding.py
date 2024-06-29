@@ -17,7 +17,9 @@ def fetch_embedding(input_texts, model)-> Embeddings:
     embeddings: List[Embedding] = []
     for input_text in input_texts:
       payload = {
-          "inputText": input_text,
+        "inputText": input_text,
+        "dimensions": 512,
+        "normalize": True
       }
 
       # Serialize the payload to JSON
@@ -44,14 +46,16 @@ def fetch_embedding(input_texts, model)-> Embeddings:
 
       # Deserialize the response body
       try:
-          resp = json.loads(response['Body'].read())
+          resp =json.loads(response.get('body').read())
       except json.JSONDecodeError as err:
           logging.error(f"failed to unmarshal: {err}")
           sys.exit(1)
 
       # Extract embeddings
-      = [Vector(item) for item in resp.get('Embedding', [])]
+      #    embeddings: List[Embedding] = [Vector(item) for item in resp.get('Embedding', [])]
 
+      embedding = [float(item) for item in resp.get('embedding', [])]
+      embeddings.append(embedding)
       # Print vector length
       print("generated vector length -", len(embeddings))
 
