@@ -8,12 +8,11 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 chromadb = "^0.5.3"
-langchain-community = "^0.2.6"
 tiktoken = "^0.7.0"
-langchain = "^0.2.6"
 langgraph = "^0.1.4"
 tavily-python = "^0.3.3"
 langchain-aws = "^0.1.8"
+langchain-community = "^0.2.6"
 
 
 [build-system]

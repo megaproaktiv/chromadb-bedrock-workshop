@@ -1,2 +1,7 @@
 .DS_Store
 .env
+poetry.lock
+pyrightconfig.json
+db
+img/example-problems.png
+titan/__pycache__

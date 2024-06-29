@@ -13,3 +13,9 @@ tasks:
     cmds:
       - echo "{{.GREETING}}"
     silent: true
+
+  reset:
+    desc: reset app / delete db
+    cmds:
+      - rm -rf db
+    silent: true

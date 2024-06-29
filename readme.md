@@ -38,9 +38,22 @@ Output:
 1024
 ```
 
-## 3) ChromaDB with Bedrock
+## 3) ChromaDB with Bedrock langchain
 
 See: [Creating your own embedding function](https://cookbook.chromadb.dev/embeddings/bring-your-own-embeddings/)
+
+Very large
+
+  ```bash
+  du -skh  /Users/gglawe/Library/Caches/pypoetry/virtualenvs/py-chroma-ST8gDT65-py3.11/lib/python3.11
+  326M	/Users/gglawe/Library/Caches/pypoetry/virtualenvs/py-chroma-ST8gDT65-py3.11/lib/python3.11
+  ```
+
+  Without langchain 297M.
+
+  Lambda size limit is 250MB.
+
+
 
 ## Pyrightconfig
 
@@ -66,3 +79,27 @@ poetry env list
 - [Basic Concepts of Embedding Databases](https://realpython.com/chromadb-vector-database/)
 - [chromadb](https://docs.trychroma.com/)
 - [Chromadb Bedrock](https://medium.com/@philippkai/building-a-rag-agent-with-langgraph-llama3-70b-and-scaling-with-amazon-bedrock-2be03fb4088b)
+
+### Errors
+
+#### ERROR:root:failed to invoke model: An error occurred (ValidationException) when calling the InvokeModel operation: The provided model identifier is invalid.
+
+Cause:
+
+```py
+response = client.invoke_model(
+    body=payload_bytes,
+    modelId='titanEmbeddingModelID',  # Replace with your actual model ID
+    contentType='application/json'
+)
+```
+
+#### ERROR:root:failed to invoke model: An error occurred (ValidationException) when calling the InvokeModel operation: Malformed input request: 2 schema violations found, please reformat your input and try again.
+
+Cause:
+
+```py
+payload = {
+    "InputText": input_text,
+}
+``
