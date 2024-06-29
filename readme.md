@@ -67,6 +67,16 @@ db/chroma.sqlite3
 If you start this a second time, you will see that the embeddings are already stored in the database.
 With "task reset" you can delete the database and start from scratch.
 
+
+
+```bash
+task reset
+poetry shell
+python chromadb-bedrock.py
+```
+
+In the distances: ` [[0.8588722621782032, 1.435043720481901, 1.5756265855644258]]` you see how semantically far away the imported document from the question is.
+
 ## 4) ChromaDB with Bedrock and local database
 
 ```bash
