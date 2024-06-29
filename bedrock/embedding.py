@@ -4,10 +4,22 @@ import boto3
 import sys
 from typing import Sequence, List, Union
 
-from chromadb import  EmbeddingFunction, Embeddings
+from chromadb import  Documents, EmbeddingFunction, Embeddings
 from chromadb.api.models.CollectionCommon import Embedding
 
 Vector = Union[Sequence[float], Sequence[int]]
+
+# See https://cookbook.chromadb.dev/embeddings/bring-your-own-embeddings/#example-implementation
+# https://github.com/neo-con/chromadb-tutorial/blob/main/7.%20Using%20Embedding%20Functions/2.%20Custom%20Embedding%20Functions/custom_emb_func.py
+# https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-embed-text.html
+class BedrockEmbeddingFunction(EmbeddingFunction):
+  def __init__(self):
+    #self.model = "amazon.titan-embed-text-v1"
+    self.model = "amazon.titan-embed-text-v2:0"
+
+  def __call__(self, input: Documents) -> Embeddings:
+        """Embed the input documents."""
+        return  fetch_embedding(input, self.model)
 
 
 def fetch_embedding(input_texts, model)-> Embeddings:

@@ -5,3 +5,5 @@ pyrightconfig.json
 db
 img/example-problems.png
 titan/__pycache__
+.vscode
+__pycache__

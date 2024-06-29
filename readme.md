@@ -1,30 +1,36 @@
 #  Embedding Databases
 
-## ChromaDB
+This workshop shows the usage of an embedding database, which uses a local db file.
+This way it could be included in lambda.
+As documents, we use a part of the tecRacer AWS FAQs, stored in `tecracer-faq.txt`.
+
+## 0 Install
 
 ```bash
-pip install chromadb
+poetry install
 ```
+
+## 1) Getting Started with Chromadb
+
+ChromaDB is a vector database that allows you to store and query embeddings.
+
+Here you see the first steps.
+
 
 ```bash
 poetry shell
+python chromadb-start.py
 ```
 
-## 1) Getting Started
+What happens?
+A model is downloaded locally.
 
-```bash
- poetry shell
- python chromadb-start.py
-```
-
-Output:
-
-```bash
-/Users/gglawe/.cache/chroma/onnx_models/all-MiniLM-L6-v2/onnx.tar.gz:  35%|█████████████████▎                                | 27.4M/79.3M [00:05<00:11, 4.80MiB/s]
-{'ids': [['id1', 'id2']], 'distances': [[1.0403728485107422, 1.2430635690689087]], 'metadatas': [[None, None]], 'embeddings': None, 'documents': [['This is a document about pineapple', 'This is a document about oranges']], 'uris': None, 'data': None, 'included': ['metadatas', 'documents', 'distances']}
-```
 
 ## 2) Bedrock start
+
+This is an example of how Bedrock is used to get embeddings from a model.
+
+You see the numerical representation of the text "This is a content of the document".
 
 ```bash
 poetry shell
@@ -38,24 +44,45 @@ Output:
 1024
 ```
 
-## 3) ChromaDB with Bedrock langchain
+## 3) ChromaDB with Bedrock
 
-See: [Creating your own embedding function](https://cookbook.chromadb.dev/embeddings/bring-your-own-embeddings/)
+Now we combine the two examples above.
+For that, a own embedding function is used.
 
-Very large
+See [embedding.py](bedrock/embedding.py)
 
-  ```bash
-  du -skh  /Users/gglawe/Library/Caches/pypoetry/virtualenvs/py-chroma-ST8gDT65-py3.11/lib/python3.11
-  326M	/Users/gglawe/Library/Caches/pypoetry/virtualenvs/py-chroma-ST8gDT65-py3.11/lib/python3.11
-  ```
+The texts are send to the bedrockruntime AWS API.
+The responses include the embedding vectors:
 
-  Without langchain 297M.
+```py
+resp.get('embedding', [])]
+```
 
-  Lambda size limit is 250MB.
+All embeddings are stored in a local SQLite database file:
 
+```bash
+db/chroma.sqlite3
+```
+
+If you start this a second time, you will see that the embeddings are already stored in the database.
+With "task reset" you can delete the database and start from scratch.
+
+## 4) ChromaDB with Bedrock and local database
+
+```bash
+poetry shell
+python chromadb-persisted.py
+```
+
+As we have created a local database in the previous step, we can now use this database to get the embeddings.
+
+So the "import" step is not necessary anymore.
 
 
 ## Pyrightconfig
+
+If you use pyright, with poetry, you may have to configure the path to the virtual environment.
+
 
 ```bash
 poetry env list
@@ -66,7 +93,7 @@ poetry env list
 ```json
 {
   "venv": "py-chroma-ST8gDT65-py3.11",
-  "venvPath": "/Users/gglawe/Library/Caches/pypoetry/virtualenvs/"
+  "venvPath": "/Users/******/Library/Caches/pypoetry/virtualenvs/"
 }
 ```
 
@@ -78,7 +105,6 @@ poetry env list
 
 - [Basic Concepts of Embedding Databases](https://realpython.com/chromadb-vector-database/)
 - [chromadb](https://docs.trychroma.com/)
-- [Chromadb Bedrock](https://medium.com/@philippkai/building-a-rag-agent-with-langgraph-llama3-70b-and-scaling-with-amazon-bedrock-2be03fb4088b)
 
 ### Errors
 
